@@ -27,7 +27,7 @@ public class Bottomline3Application {
 			@Override
 			public void run(String... args) throws Exception {
 				try (CSVReader reader = new CSVReader(new FileReader("C:\\data\\boyNames.csv"))) {
-					  List<Person> people = reader.readAll().stream().map(i->i[0]).map(Person::new).toList();
+					List<Person> people = reader.readAll().stream().map(p -> new Person(p[0])).toList();
 				      personRepository.saveAll(people);
 				  }
 			}

@@ -16,7 +16,7 @@ public class PersonService {
 	
 	public List<String> getSuggestions(String prefix){
 		List<Person> people = personRepository.findAll();
-		List<String> names = people.stream().map(Person::getName).toList();
+		List<String> names = people.stream().map(p -> p.getName()).toList();
 		Trie trie = new Trie(names);
 		
 		return trie.suggest(prefix);
