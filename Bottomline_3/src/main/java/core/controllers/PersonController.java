@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import core.services.PersonService;
 
 @RestController
-@RequestMapping(path="/")
+@RequestMapping
 public class PersonController {
 	@Autowired
 	private PersonService personService;
 	
-	@GetMapping
+	@GetMapping(path="/")
 	public List<String> getSuggestions(@RequestParam String prefix){
 		return personService.getSuggestions(prefix);
 	}
